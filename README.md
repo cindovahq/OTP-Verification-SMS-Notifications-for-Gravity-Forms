@@ -47,20 +47,6 @@ Full setup instructions, FAQ and the list of external services are in [readme.tx
 | `readme.txt` | WordPress.org readme |
 | `uninstall.php` | Data clean-up |
 
-## Build the release zip
-
-    bin/build.sh
-
-Creates `dist/otp-verification-sms-for-gravity-forms.zip` with the top folder `otp-verification-sms-for-gravity-forms/`, leaving out the files listed in `.distignore`.
-
-## Releasing to WordPress.org
-
-- [ ] Version matches in the plugin header, `CINDOVA_GFOTP_VERSION` and `Stable tag` in `readme.txt`
-- [ ] `Contributors:` in `readme.txt` is a real WordPress.org username
-- [ ] Run [Plugin Check](https://wordpress.org/plugins/plugin-check/) and fix all errors
-- [ ] `bin/build.sh`, then test-install the zip
-- [ ] Banner, icon and screenshots go in the WordPress.org SVN `/assets` folder (not in the zip)
-- [ ] Tag the release in SVN `/tags`
 
 ## License
 
