@@ -1,0 +1,26 @@
+# Local-only material (kept on disk, never pushed)
+/docs/
+/tests/
+
+# Build output
+/dist/
+*.zip
+
+# Tooling
+node_modules/
+/vendor/
+.env
+phpcs.xml
+.phpcs.xml
+.phpunit.result.cache
+
+# Logs
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~

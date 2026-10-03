@@ -1,0 +1,99 @@
+/*
+ * OTP Verification & SMS Notifications for Gravity Forms
+ * Front-end styles. Version 1.0.0
+ */
+
+.gform_wrapper .cindova-gfotp-message,
+.cindova-gfotp-message {
+	margin-top: 6px;
+}
+
+.cindova-gfotp-message:empty {
+	display: none;
+}
+
+.cindova-gfotp-message.is-success,
+.cindova-gfotp-message.is-error,
+.cindova-gfotp-message.is-loading {
+	display: block;
+	padding: 8px 12px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	font-size: 0.9em;
+	line-height: 1.4;
+}
+
+.cindova-gfotp-message.is-success {
+	color: #0f3d1a;
+	background-color: #d4edda;
+	border-color: #b6dfc0;
+}
+
+.cindova-gfotp-message.is-error {
+	color: #5c1219;
+	background-color: #f8d7da;
+	border-color: #f1b8bd;
+}
+
+.cindova-gfotp-message.is-loading {
+	color: #073b46;
+	background-color: #d1ecf1;
+	border-color: #b0dce5;
+}
+
+.gform_wrapper .cindova-gfotp-button,
+.cindova-gfotp-button {
+	display: inline-block;
+	margin: 8px 0 0;
+	padding: 8px 14px;
+	background-color: #005a87;
+	color: #fff;
+	border: 1px solid #005a87;
+	border-radius: 4px;
+	font-size: 0.9em;
+	line-height: 1.3;
+	cursor: pointer;
+}
+
+.cindova-gfotp-button:hover:not(:disabled) {
+	background-color: #004866;
+	border-color: #004866;
+}
+
+.cindova-gfotp-button:focus-visible,
+.cindova-gfotp-change:focus-visible {
+	outline: 2px solid #005a87;
+	outline-offset: 2px;
+}
+
+.cindova-gfotp-button:disabled {
+	background-color: #595959;
+	border-color: #595959;
+	color: #fff;
+	cursor: not-allowed;
+	opacity: 0.8;
+}
+
+.gform_wrapper .cindova-gfotp-change,
+.cindova-gfotp-change {
+	display: inline-block;
+	margin: 8px 0 0 10px;
+	padding: 0;
+	background: none;
+	border: 0;
+	color: #005a87;
+	font-size: 0.9em;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.cindova-gfotp-change:hover {
+	color: #004866;
+}
+
+.cindova-gfotp-recaptcha {
+	margin: 0;
+	padding: 0;
+	height: 0;
+	overflow: hidden;
+}

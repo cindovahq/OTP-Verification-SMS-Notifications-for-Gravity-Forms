@@ -1,0 +1,613 @@
+# Copyright (C) 2026 Cindova Technologies
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: OTP Verification & SMS Notifications for Gravity Forms 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/otp-verification-sms-for-gravity-forms\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-03T08:28:19+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: otp-verification-sms-for-gravity-forms\n"
+
+#. Plugin Name of the plugin
+#: otp-verification-sms-for-gravity-forms.php
+#: includes/admin-settings.php:38
+msgid "OTP Verification & SMS Notifications for Gravity Forms"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: otp-verification-sms-for-gravity-forms.php
+msgid "https://www.cindova.com"
+msgstr ""
+
+#. Description of the plugin
+#: otp-verification-sms-for-gravity-forms.php
+msgid "Adds Firebase phone OTP verification to Gravity Forms, plus SMS notifications via MSG91 or Twilio and Slack notifications."
+msgstr ""
+
+#. Author of the plugin
+#: otp-verification-sms-for-gravity-forms.php
+msgid "Cindova Technologies"
+msgstr ""
+
+#: includes/admin-settings.php:20
+msgid "Settings"
+msgstr ""
+
+#: includes/admin-settings.php:34
+msgid "When you verify your phone number on a form, your phone number is sent from your browser to Google Firebase Authentication, which sends you a one-time code by SMS and uses Google reCAPTCHA to prevent abuse. See the Google Privacy Policy: https://policies.google.com/privacy"
+msgstr ""
+
+#: includes/admin-settings.php:35
+msgid "After you submit a form, we may send an SMS to the phone number you entered through our SMS provider (MSG91 or Twilio), and we may post a notification containing some of the information you submitted to our Slack workspace. These providers process that data under their own privacy policies."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:125
+#: includes/class-cindova-gfotp-addon.php:163
+#: includes/class-cindova-gfotp-addon.php:327
+msgid "Phone OTP Verification"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:126
+msgid "Phone OTP"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:175
+msgid "Firebase"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:180
+msgid "Firebase web config (JSON)"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:181
+msgid "Copy the config object from Firebase console, Project settings, Your apps. Keys must be double-quoted JSON strings; apiKey, authDomain and projectId are required. If empty, OTP verification stays disabled."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:194
+msgid "App Check (optional)"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:199
+msgid "reCAPTCHA site key"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:201
+msgid "WARNING:"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:201
+msgid "Leave blank to disable. App Check enforcement for Firebase Authentication is a Preview feature. If you enable enforcement in the Firebase console and this key is wrong or missing, every OTP request will be rejected. Register the key under Firebase console, App Check first, and test with enforcement in 'monitor' mode."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:206
+msgid "Provider"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:211
+msgid "reCAPTCHA v3"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:215
+msgid "reCAPTCHA Enterprise"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:232
+msgid "Firebase phone authentication requires the Blaze (pay-as-you-go) plan."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:233
+msgid "Enable the Phone provider under Authentication, Sign-in method."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:234
+msgid "Add your site domain under Authentication, Settings, Authorized domains."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:235
+msgid "Configure the SMS region policy under Authentication, Settings, SMS region policy."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:236
+msgid "Copy the web app config object from Project settings, Your apps, and paste it above."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:237
+msgid "Gravity Forms stores plugin settings as plain text in the database. To encrypt them at rest, define the GF_ENCRYPTION_KEY constant in wp-config.php (see the Gravity Forms documentation)."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:239
+msgid "Firebase setup checklist"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:290
+msgid "Invalid Firebase config. Paste a JSON object with double-quoted keys and string values that includes apiKey, authDomain and projectId."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:328
+msgid "Visitors must verify their phone number with a one-time code sent by SMS (through Firebase) before the form can be submitted. Use a Phone field with the International format, and add a Single Line Text field for the code. SMS notifications are configured under \"SMS & Slack Notifications\" in the form settings."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:333
+#: includes/class-cindova-gfotp-addon.php:334
+msgid "Enable phone verification"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:339
+#: includes/class-cindova-gfotp-notifications-addon.php:510
+msgid "Phone field"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:340
+msgid "The phone field should use the International format so that the number includes the country code."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:349
+msgid "OTP code field"
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:350
+msgid "A Single Line Text field that holds the verification code entered by the visitor."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:370
+msgid "Select the phone field."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:385
+msgid "Select the OTP code field."
+msgstr ""
+
+#: includes/class-cindova-gfotp-addon.php:390
+msgid "The OTP code field must be different from the phone field."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:124
+#: includes/class-cindova-gfotp-notifications-addon.php:215
+msgid "SMS & Slack Notifications"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:125
+msgid "SMS & Slack"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:185
+msgid "Sending…"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:186
+msgid "Enter a phone number to send the test SMS to."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:187
+msgid "The test request failed. Reload the page and try again."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:188
+msgid "No response text was returned."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:246
+#: includes/class-cindova-gfotp-notifications-addon.php:252
+msgid "SMS provider"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:247
+msgid "Choose the provider used by all SMS notification feeds. Slack is configured below. Gravity Forms stores these settings as plain text in the database; define the GF_ENCRYPTION_KEY constant in wp-config.php to encrypt them at rest (see the Gravity Forms documentation)."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:257
+#: includes/class-cindova-gfotp-notifications-addon.php:270
+msgid "MSG91"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:261
+#: includes/class-cindova-gfotp-notifications-addon.php:313
+msgid "Twilio"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:276
+msgid "MSG91 API"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:280
+msgid "Flow API v5 (recommended)"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:284
+msgid "Legacy sendhttp (free-text message + DLT template ID)"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:292
+msgid "MSG91 Auth Key"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:297
+msgid "MSG91 Sender ID"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:298
+msgid "Legacy sendhttp API only. Not used by the Flow API."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:304
+msgid "MSG91 Route"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:306
+msgid "Legacy sendhttp API only. Default is 4."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:319
+msgid "Twilio From Phone Number"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:320
+msgid "For example +1234567890."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:325
+msgid "Twilio Account SID"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:330
+msgid "Twilio Auth Token"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:336
+#: includes/class-cindova-gfotp-notifications-addon.php:494
+#: includes/class-cindova-gfotp-notifications-addon.php:543
+#: includes/class-cindova-gfotp-notifications-addon.php:664
+msgid "Slack"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:341
+msgid "Slack Bot User OAuth Token"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:342
+msgid "Requires the channels:read, groups:read and chat:write scopes. Saving a new token loads the channel list."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:348
+#: includes/class-cindova-gfotp-notifications-addon.php:561
+#: includes/class-cindova-gfotp-notifications-addon.php:677
+msgid "Default channel"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:349
+msgid "Used by Slack feeds that do not choose a channel. Make sure your bot is a member of the channel."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:351
+msgid "Select a channel"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:357
+#: includes/class-cindova-gfotp-notifications-addon.php:358
+msgid "Refresh the channel list when saving"
+msgstr ""
+
+#. translators: %s: error returned by Slack, e.g. invalid_auth or missing_scope.
+#: includes/class-cindova-gfotp-notifications-addon.php:435
+#, php-format
+msgid "Slack could not load the channel list: %s"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:464
+msgid "Current provider: MSG91 Flow API. The Template ID and Flow variables are used; the message is ignored."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:465
+msgid "Current provider: MSG91 legacy API. The message is sent; the Template ID is the optional DLT template ID. Flow variables are ignored."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:467
+msgid "Current provider: Twilio. The message is sent as the SMS body. Template ID and Flow variables are ignored."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:469
+msgid "Use placeholders like {{field_1}} or Gravity Forms merge tags such as {Name:1}, {entry_id} or {all_fields}."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:473
+msgid "Notification settings"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:478
+#: includes/class-cindova-gfotp-notifications-addon.php:651
+msgid "Name"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:485
+msgid "Notification type"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:490
+#: includes/class-cindova-gfotp-notifications-addon.php:503
+#: includes/class-cindova-gfotp-notifications-addon.php:664
+msgid "SMS"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:511
+msgid "The SMS is sent to the number entered in this field."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:519
+msgid "Message"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:520
+msgid "MSG91 legacy API and Twilio: the SMS text."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:527
+msgid "Template ID (MSG91)"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:528
+msgid "Flow API v5: the Flow template ID from your MSG91 account (required to send). Legacy API: the optional DLT template ID."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:534
+msgid "Flow variables (MSG91)"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:535
+msgid "Flow API v5 only (ignored by the legacy API). One name=value per line. A template variable ##var1## is sent as var1, for example: var1={{field_1}}. Names are case-sensitive."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:549
+msgid "Slack message"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:558
+msgid "Channel"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:559
+msgid "Leave on the default to use the channel chosen under Forms, Settings, SMS & Slack."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:567
+msgid "Conditional logic"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:572
+msgid "Condition"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:573
+msgid "Enable condition"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:574
+msgid "Send this notification if"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:579
+msgid "Send a test"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:599
+msgid "Sends a test using the values currently entered above; you do not need to save first. The test has no entry, so merge tags such as {Name:1} are not replaced and are sent as written. Slack tests post to the chosen channel (or the default channel)."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:600
+msgid "Test phone number (SMS)"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:602
+msgid "Send test"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:617
+msgid "This field is required."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:652
+msgid "Type"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:653
+msgid "Details"
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:720
+msgid "No SMS was sent because the phone field is empty."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:731
+#: includes/class-cindova-gfotp-notifications-addon.php:745
+msgid "No SMS was sent because the message is empty."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:738
+msgid "No SMS was sent because the MSG91 Flow template ID is empty."
+msgstr ""
+
+#. translators: %s: SMS provider name.
+#: includes/class-cindova-gfotp-notifications-addon.php:755
+#, php-format
+msgid "The SMS could not be sent through %s. Check the provider credentials and the Gravity Forms logs."
+msgstr ""
+
+#. translators: 1: phone number, 2: SMS provider name.
+#: includes/class-cindova-gfotp-notifications-addon.php:770
+#, php-format
+msgid "SMS sent to %1$s via %2$s."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:796
+msgid "No Slack message was sent because the message is empty."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:800
+msgid "No Slack message was sent because no channel is selected."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:805
+msgid "The Slack message could not be sent. Check the bot token, the channel and the Gravity Forms logs."
+msgstr ""
+
+#. translators: %s: Slack channel.
+#: includes/class-cindova-gfotp-notifications-addon.php:814
+#, php-format
+msgid "Slack notification sent to %s."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:832
+msgid "Your session expired. Reload the page and try again."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:835
+msgid "You do not have permission to do this."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:878
+msgid "No Slack message entered."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:885
+msgid "No test number provided."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:891
+msgid "No Twilio message configured."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:897
+msgid "No MSG91 Flow template ID configured."
+msgstr ""
+
+#: includes/class-cindova-gfotp-notifications-addon.php:902
+msgid "No MSG91 message configured."
+msgstr ""
+
+#: includes/migration.php:162
+msgid "SMS notification"
+msgstr ""
+
+#: includes/migration.php:174
+msgid "Slack notification"
+msgstr ""
+
+#: includes/otp.php:74
+msgid "Phone verification failed or expired. Please request a new code."
+msgstr ""
+
+#: includes/otp.php:80
+msgid "Please verify your phone number with the code sent by SMS before submitting."
+msgstr ""
+
+#: includes/otp.php:89
+msgid "We could not verify your phone number right now. Please try again in a moment."
+msgstr ""
+
+#. translators: %s: verified phone number.
+#: includes/otp.php:237
+#, php-format
+msgid "Phone number %s verified via Firebase OTP."
+msgstr ""
+
+#: includes/otp.php:309
+msgid "Send code"
+msgstr ""
+
+#: includes/otp.php:310
+msgid "Resend code"
+msgstr ""
+
+#. translators: %d: seconds until the code can be resent.
+#: includes/otp.php:312
+#, php-format
+msgid "Resend in %d s"
+msgstr ""
+
+#: includes/otp.php:313
+msgid "Verify code"
+msgstr ""
+
+#: includes/otp.php:314
+msgid "Sending code…"
+msgstr ""
+
+#. translators: %s: phone number the code was sent to.
+#: includes/otp.php:316
+#, php-format
+msgid "Code sent to %s"
+msgstr ""
+
+#: includes/otp.php:317
+msgid "Verifying…"
+msgstr ""
+
+#: includes/otp.php:318
+msgid "Phone number verified."
+msgstr ""
+
+#: includes/otp.php:319
+msgid "Change number"
+msgstr ""
+
+#: includes/otp.php:320
+msgid "Enter your phone number with country code, e.g. +14155552671."
+msgstr ""
+
+#: includes/otp.php:321
+msgid "Enter the code you received."
+msgstr ""
+
+#: includes/otp.php:322
+msgid "That code is incorrect. Please try again."
+msgstr ""
+
+#: includes/otp.php:323
+msgid "The code has expired. Please request a new one."
+msgstr ""
+
+#: includes/otp.php:324
+msgid "Too many attempts. Please wait and try again later."
+msgstr ""
+
+#: includes/otp.php:325
+msgid "SMS limit reached. Please try again later."
+msgstr ""
+
+#: includes/otp.php:326
+msgid "Security check failed. Please reload the page and try again."
+msgstr ""
+
+#: includes/otp.php:327
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: includes/providers/slack.php:88
+msgid "Slack bot token missing."
+msgstr ""
+
+#: includes/providers/slack.php:92
+msgid "No Slack channel selected."
+msgstr ""
+
+#: includes/trait-cindova-gfotp-addon-common.php:138
+msgid "A value is saved. Leave blank to keep it."
+msgstr ""
+
+#: includes/trait-cindova-gfotp-addon-common.php:141
+msgid "Remove the saved value"
+msgstr ""
+
+#: otp-verification-sms-for-gravity-forms.php:94
+msgid "OTP Verification & SMS Notifications for Gravity Forms requires Gravity Forms 2.5 or later. Install and activate Gravity Forms (or update it to 2.5+), or deactivate this plugin. This notice disappears once Gravity Forms is active."
+msgstr ""
+
+#: otp-verification-sms-for-gravity-forms.php:111
+msgid "An older version of \"Gravity Forms OTP and SMS Notifications\" (2.x) is still active. Its settings have been copied to OTP Verification & SMS Notifications for Gravity Forms; please deactivate and delete the old plugin to avoid duplicate SMS and Slack messages."
+msgstr ""
