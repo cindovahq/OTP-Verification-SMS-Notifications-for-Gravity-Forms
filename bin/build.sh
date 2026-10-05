@@ -2,7 +2,7 @@
 # Build the WordPress.org distribution zip.
 set -euo pipefail
 
-SLUG="otp-verification-sms-for-gravity-forms"
+SLUG="cindova-phone-otp-sms-for-gravity-forms"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DIST="$ROOT/dist"
 STAGE="$(mktemp -d)"

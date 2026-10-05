@@ -71,13 +71,13 @@ function cindova_gfotp_form_tag( $form_tag, $form ) {
  * @return true|string True when verified, otherwise a translated error message.
  */
 function cindova_gfotp_check_token( $form ) {
-	$failed = __( 'Phone verification failed or expired. Please request a new code.', 'otp-verification-sms-for-gravity-forms' );
+	$failed = __( 'Phone verification failed or expired. Please request a new code.', 'cindova-phone-otp-sms-for-gravity-forms' );
 
 	cindova_gfotp_verified_holder( $form['id'], false );
 
 	$token = cindova_gfotp_get_posted_token();
 	if ( '' === $token ) {
-		return __( 'Please verify your phone number with the code sent by SMS before submitting.', 'otp-verification-sms-for-gravity-forms' );
+		return __( 'Please verify your phone number with the code sent by SMS before submitting.', 'cindova-phone-otp-sms-for-gravity-forms' );
 	}
 
 	$config = cindova_gfotp_get_firebase_config();
@@ -86,7 +86,7 @@ function cindova_gfotp_check_token( $form ) {
 	if ( is_wp_error( $claims ) ) {
 		if ( 'cindova_gfotp_verification_unavailable' === $claims->get_error_code() ) {
 			cindova_gfotp_log( 'OTP verification unavailable: ' . $claims->get_error_message() );
-			return __( 'We could not verify your phone number right now. Please try again in a moment.', 'otp-verification-sms-for-gravity-forms' );
+			return __( 'We could not verify your phone number right now. Please try again in a moment.', 'cindova-phone-otp-sms-for-gravity-forms' );
 		}
 		cindova_gfotp_log( 'OTP token rejected: ' . $claims->get_error_message() );
 		return $failed;
@@ -234,7 +234,7 @@ function cindova_gfotp_mark_token_used( $entry, $form ) {
 			'OTP Verification',
 			sprintf(
 				/* translators: %s: verified phone number. */
-				__( 'Phone number %s verified via Firebase OTP.', 'otp-verification-sms-for-gravity-forms' ),
+				__( 'Phone number %s verified via Firebase OTP.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				$data['phone']
 			),
 			'note',
@@ -306,24 +306,24 @@ function cindova_gfotp_enqueue_frontend( $form, $is_ajax ) {
  */
 function cindova_gfotp_get_js_strings() {
 	return array(
-		'sendOtp'         => __( 'Send code', 'otp-verification-sms-for-gravity-forms' ),
-		'resendOtp'       => __( 'Resend code', 'otp-verification-sms-for-gravity-forms' ),
+		'sendOtp'         => __( 'Send code', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'resendOtp'       => __( 'Resend code', 'cindova-phone-otp-sms-for-gravity-forms' ),
 		/* translators: %d: seconds until the code can be resent. */
-		'resendIn'        => __( 'Resend in %d s', 'otp-verification-sms-for-gravity-forms' ),
-		'verifyOtp'       => __( 'Verify code', 'otp-verification-sms-for-gravity-forms' ),
-		'sending'         => __( 'Sending code…', 'otp-verification-sms-for-gravity-forms' ),
+		'resendIn'        => __( 'Resend in %d s', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'verifyOtp'       => __( 'Verify code', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'sending'         => __( 'Sending code…', 'cindova-phone-otp-sms-for-gravity-forms' ),
 		/* translators: %s: phone number the code was sent to. */
-		'sent'            => __( 'Code sent to %s', 'otp-verification-sms-for-gravity-forms' ),
-		'verifying'       => __( 'Verifying…', 'otp-verification-sms-for-gravity-forms' ),
-		'verified'        => __( 'Phone number verified.', 'otp-verification-sms-for-gravity-forms' ),
-		'changeNumber'    => __( 'Change number', 'otp-verification-sms-for-gravity-forms' ),
-		'invalidPhone'    => __( 'Enter your phone number with country code, e.g. +14155552671.', 'otp-verification-sms-for-gravity-forms' ),
-		'enterCode'       => __( 'Enter the code you received.', 'otp-verification-sms-for-gravity-forms' ),
-		'invalidCode'     => __( 'That code is incorrect. Please try again.', 'otp-verification-sms-for-gravity-forms' ),
-		'codeExpired'     => __( 'The code has expired. Please request a new one.', 'otp-verification-sms-for-gravity-forms' ),
-		'tooManyRequests' => __( 'Too many attempts. Please wait and try again later.', 'otp-verification-sms-for-gravity-forms' ),
-		'quotaExceeded'   => __( 'SMS limit reached. Please try again later.', 'otp-verification-sms-for-gravity-forms' ),
-		'captchaFailed'   => __( 'Security check failed. Please reload the page and try again.', 'otp-verification-sms-for-gravity-forms' ),
-		'genericError'    => __( 'Something went wrong. Please try again.', 'otp-verification-sms-for-gravity-forms' ),
+		'sent'            => __( 'Code sent to %s', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'verifying'       => __( 'Verifying…', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'verified'        => __( 'Phone number verified.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'changeNumber'    => __( 'Change number', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'invalidPhone'    => __( 'Enter your phone number with country code, e.g. +14155552671.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'enterCode'       => __( 'Enter the code you received.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'invalidCode'     => __( 'That code is incorrect. Please try again.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'codeExpired'     => __( 'The code has expired. Please request a new one.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'tooManyRequests' => __( 'Too many attempts. Please wait and try again later.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'quotaExceeded'   => __( 'SMS limit reached. Please try again later.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'captchaFailed'   => __( 'Security check failed. Please reload the page and try again.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+		'genericError'    => __( 'Something went wrong. Please try again.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 	);
 }

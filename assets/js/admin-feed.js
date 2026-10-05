@@ -1,5 +1,5 @@
 /*
- * OTP Verification & SMS Notifications for Gravity Forms
+ * Cindova Phone OTP & SMS for Gravity Forms
  * "Send test" button on the SMS & Slack feed edit page. Version 1.0.0
  *
  * Sends the values currently entered in the feed form (saved or not) to the

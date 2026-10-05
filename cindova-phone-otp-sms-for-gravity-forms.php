@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       OTP Verification & SMS Notifications for Gravity Forms
- * Plugin URI:        https://www.cindova.com
+ * Plugin Name:       Cindova Phone OTP & SMS for Gravity Forms
+ * Plugin URI:        https://github.com/cindovahq/OTP-Verification-SMS-Notifications-for-Gravity-Forms
  * Description:       Adds Firebase phone OTP verification to Gravity Forms, plus SMS notifications via MSG91 or Twilio and Slack notifications.
  * Version:           1.0.0
  * Requires at least: 6.5
@@ -10,7 +10,7 @@
  * Author URI:        https://www.cindova.com
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       otp-verification-sms-for-gravity-forms
+ * Text Domain:       cindova-phone-otp-sms-for-gravity-forms
  * Domain Path:       /languages
  *
  * @package CindovaGfOtp
@@ -91,7 +91,7 @@ function cindova_gfotp_missing_gf_notice() {
 	}
 	printf(
 		'<div class="notice notice-error"><p>%s</p></div>',
-		esc_html__( 'OTP Verification & SMS Notifications for Gravity Forms requires Gravity Forms 2.5 or later. Install and activate Gravity Forms (or update it to 2.5+), or deactivate this plugin. This notice disappears once Gravity Forms is active.', 'otp-verification-sms-for-gravity-forms' )
+		esc_html__( 'Cindova Phone OTP & SMS for Gravity Forms requires Gravity Forms 2.5 or later. Install and activate Gravity Forms (or update it to 2.5+), or deactivate this plugin. This notice disappears once Gravity Forms is active.', 'cindova-phone-otp-sms-for-gravity-forms' )
 	);
 }
 add_action( 'admin_notices', 'cindova_gfotp_missing_gf_notice' );
@@ -108,7 +108,7 @@ function cindova_gfotp_legacy_plugin_notice() {
 	}
 	printf(
 		'<div class="notice notice-warning"><p>%s</p></div>',
-		esc_html__( 'An older version of "Gravity Forms OTP and SMS Notifications" (2.x) is still active. Its settings have been copied to OTP Verification & SMS Notifications for Gravity Forms; please deactivate and delete the old plugin to avoid duplicate SMS and Slack messages.', 'otp-verification-sms-for-gravity-forms' )
+		esc_html__( 'An older version of "Gravity Forms OTP and SMS Notifications" (2.x) is still active. Its settings have been copied to Cindova Phone OTP & SMS for Gravity Forms; please deactivate and delete the old plugin to avoid duplicate SMS and Slack messages.', 'cindova-phone-otp-sms-for-gravity-forms' )
 	);
 }
 add_action( 'admin_notices', 'cindova_gfotp_legacy_plugin_notice' );

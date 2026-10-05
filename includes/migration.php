@@ -159,7 +159,7 @@ function cindova_gfotp_migrate_forms() {
 		$sms   = (string) rgar( $form, 'twilio' === $provider ? 'gf_twilio_custom_message' : 'gf_msg91_custom_message' );
 		if ( '' !== $phone_id && '' !== $sms ) {
 			$feeds[] = array(
-				'feedName'                         => __( 'SMS notification', 'otp-verification-sms-for-gravity-forms' ),
+				'feedName'                         => __( 'SMS notification', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'notification_type'                => 'sms',
 				'phone_field'                      => $phone_id,
 				'message'                          => $sms,
@@ -171,7 +171,7 @@ function cindova_gfotp_migrate_forms() {
 		$slack_message = (string) rgar( $form, 'gf_slack_message' );
 		if ( '1' === (string) rgar( $form, 'gf_slack_enabled' ) && '' !== $slack_message ) {
 			$feeds[] = array(
-				'feedName'                         => __( 'Slack notification', 'otp-verification-sms-for-gravity-forms' ),
+				'feedName'                         => __( 'Slack notification', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'notification_type'                => 'slack',
 				'slack_message'                    => $slack_message,
 				'slack_channel'                    => '',

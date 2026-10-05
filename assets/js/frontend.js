@@ -1,5 +1,5 @@
 /**
- * OTP Verification & SMS Notifications for Gravity Forms
+ * Cindova Phone OTP & SMS for Gravity Forms
  * Front-end script. Version 1.0.0
  *
  * The server verifies the Firebase ID token stored in the hidden

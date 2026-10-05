@@ -135,10 +135,10 @@ trait Cindova_GFOTP_Addon_Common {
 			$html .= sprintf(
 				'<span class="gform-settings-description cindova-gfotp-secret-note">%1$s</span>'
 				. '<label class="cindova-gfotp-secret-remove"><input type="checkbox" name="%2$s_remove" id="%3$s_remove" value="1" /> %4$s</label>',
-				esc_html__( 'A value is saved. Leave blank to keep it.', 'otp-verification-sms-for-gravity-forms' ),
+				esc_html__( 'A value is saved. Leave blank to keep it.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				esc_attr( $input_name ),
 				esc_attr( $field->name ),
-				esc_html__( 'Remove the saved value', 'otp-verification-sms-for-gravity-forms' )
+				esc_html__( 'Remove the saved value', 'cindova-phone-otp-sms-for-gravity-forms' )
 			);
 		}
 

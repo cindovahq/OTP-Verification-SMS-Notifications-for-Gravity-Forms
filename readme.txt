@@ -1,4 +1,4 @@
-=== OTP Verification & SMS Notifications for Gravity Forms ===
+=== Cindova Phone OTP & SMS for Gravity Forms ===
 Contributors: cindova
 Tags: gravity forms, otp, sms, phone verification, firebase
 Requires at least: 6.5
@@ -12,7 +12,7 @@ Verify phone numbers with a Firebase one-time code in Gravity Forms, and send SM
 
 == Description ==
 
-Add phone number verification and instant notifications to your Gravity Forms forms.
+Confirm that visitors own the phone number they enter, and send SMS or Slack notifications when a form is submitted.
 
 **Requires Gravity Forms 2.5 or later** (tested with Gravity Forms 3.1). Gravity Forms is a separate commercial plugin that is not available on WordPress.org and is not included with this plugin. You must install and license it yourself.
 
@@ -92,6 +92,10 @@ Yes. Each SMS or Slack notification is a feed, and each feed has its own message
 
 Three things help: (1) set the SMS region policy in the Firebase console (Authentication → Settings → SMS region policy) to allow only the countries you serve; (2) optionally enable Firebase App Check by entering a reCAPTCHA site key under App Check on the Forms > Settings > Phone OTP page (register the key in the Firebase console first, and test with enforcement in monitor mode, because a wrong key with enforcement on rejects every OTP request); (3) keep the Firebase SMS quotas and billing budget alerts at low values.
 
+= I used the earlier "Gravity Forms OTP and SMS Notifications" plugin by Cindova. Can I switch? =
+
+Yes. Install and activate this plugin, then deactivate and delete the earlier one. Your Firebase, SMS and Slack settings, the phone and OTP fields of each form, and your SMS and Slack messages are copied automatically into Forms > Settings > Phone OTP, Forms > Settings > SMS & Slack and into notification feeds. The earlier plugin's data is left untouched, so you can switch back if you need to.
+
 = Which Slack permissions are needed? =
 
 Create a Slack app with a bot token that has chat:write, channels:read and groups:read (for private channels), and invite the bot to the channel.
@@ -170,19 +174,13 @@ This plugin bundles the Firebase JS SDK 12.19.0 compat builds (app, auth and app
 == Changelog ==
 
 = 1.0.0 =
-* First release on WordPress.org. It replaces the earlier "Gravity Forms OTP and SMS Notifications" plugin (2.x). Its settings, per-form OTP fields and SMS/Slack messages are copied automatically into the new Gravity Forms add-on settings and notification feeds; the old data is left untouched.
-* Built on the Gravity Forms Add-On Framework: Forms > Settings > Phone OTP and SMS & Slack, a Phone OTP tab per form, and notification feeds with conditional logic and entry notes.
-* Phone OTP verification with Firebase Authentication, verified on the server so it cannot be bypassed from the browser.
-* SMS notifications through MSG91 (Flow API v5 or the legacy API) or Twilio.
+* Initial release.
+* Phone number verification with a Firebase one-time code, verified on the server.
+* SMS notifications through MSG91 (Flow API v5 or legacy API) or Twilio.
 * Slack notifications to public and private channels.
+* Notification feeds per form, each with its own message and conditional logic.
 * Gravity Forms merge tags and {{field_ID}} placeholders in messages.
-* Works with AJAX forms, multi-page forms and several OTP forms on one page.
-* Optional Firebase App Check (off by default).
-* Firebase SDK bundled locally; Firebase and reCAPTCHA load only when the visitor clicks "Send code".
-* Secrets are masked on the settings screens, all requests use the WordPress HTTP API with SSL verification, and spam entries are skipped.
-* Translation ready, suggested privacy policy text, and clean-up of plugin data on uninstall.
-
-== Upgrade Notice ==
-
-= 1.0.0 =
-First release under this name. If you used "Gravity Forms OTP and SMS Notifications" 2.x, install this plugin, then deactivate and delete the old one; your settings carry over to Forms > Settings > Phone OTP / SMS & Slack and to notification feeds.
+* Send a test SMS or Slack message from the feed screen.
+* Optional Firebase App Check.
+* Supports AJAX forms, multi-page forms and several OTP forms on one page.
+* Suggested privacy policy text and clean-up of plugin data on uninstall.

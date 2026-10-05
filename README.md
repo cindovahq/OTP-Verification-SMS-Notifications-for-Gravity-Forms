@@ -1,4 +1,4 @@
-# OTP Verification & SMS Notifications for Gravity Forms
+# Cindova Phone OTP & SMS for Gravity Forms
 
 [![License: GPL v2 or later](https://img.shields.io/badge/License-GPL%20v2%20or%20later-blue.svg)](LICENSE)
 
@@ -20,12 +20,12 @@ Firebase phone OTP verification (checked on the server) plus SMS (MSG91, Twilio)
 - Optional Firebase App Check (off by default).
 - Works with AJAX forms, multi-page forms and several OTP forms on one page.
 - Firebase and reCAPTCHA are contacted only after the visitor clicks "Send code". The Firebase SDK is bundled, not loaded from a CDN.
-- Settings migrate automatically from the earlier "Gravity Forms OTP and SMS Notifications" 2.x plugin.
+- Settings are imported automatically from the earlier "Gravity Forms OTP and SMS Notifications" plugin by Cindova.
 
 ## Installation
 
 1. Install and activate Gravity Forms.
-2. Download the release zip (or build it, see below) and install it under Plugins > Add New > Upload.
+2. Download the latest release zip and install it under Plugins > Add New > Upload.
 3. Go to Forms > Settings > Phone OTP and paste your Firebase web config JSON. Phone authentication in Firebase needs the Blaze plan, the Phone provider enabled, your domain in Authorized domains, and an SMS region policy.
 4. Go to Forms > Settings > SMS & Slack for provider credentials.
 5. Per form: Settings > Phone OTP (choose the phone and OTP fields) and Settings > SMS & Slack (add notification feeds).
@@ -36,17 +36,16 @@ Full setup instructions, FAQ and the list of external services are in [readme.tx
 
 | Path | Purpose |
 |------|---------|
-| `otp-verification-sms-for-gravity-forms.php` | Plugin header and bootstrap |
+| `cindova-phone-otp-sms-for-gravity-forms.php` | Plugin header and bootstrap |
 | `includes/class-cindova-gfotp-addon.php` | `GFAddOn` "Phone OTP": Firebase/App Check settings, per-form OTP tab, OTP hooks |
 | `includes/class-cindova-gfotp-notifications-addon.php` | `GFFeedAddOn` "SMS & Slack": provider settings, feeds, "Send test" |
 | `includes/otp.php`, `includes/token-verifier.php` | OTP validation and Firebase ID token verification |
 | `includes/providers/` | MSG91, Twilio and Slack senders |
-| `includes/migration.php` | Import from 2.x settings |
+| `includes/migration.php` | One-time settings import from the earlier Cindova plugin |
 | `assets/js/`, `assets/css/` | Front-end and feed-screen scripts, styles |
 | `assets/vendor/firebase/` | Bundled Firebase JS SDK 12.19.0 (compat builds), Apache-2.0, see its README |
 | `readme.txt` | WordPress.org readme |
 | `uninstall.php` | Data clean-up |
-
 
 ## License
 

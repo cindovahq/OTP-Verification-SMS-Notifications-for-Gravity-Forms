@@ -2,38 +2,50 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: OTP Verification & SMS Notifications for Gravity Forms 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/otp-verification-sms-for-gravity-forms\n"
+"Project-Id-Version: Cindova Phone OTP & SMS for Gravity Forms 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cindova-phone-otp-sms-for-gravity-forms\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-03T08:28:19+00:00\n"
+"POT-Creation-Date: 2026-10-04T15:38:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: otp-verification-sms-for-gravity-forms\n"
+"X-Domain: cindova-phone-otp-sms-for-gravity-forms\n"
 
 #. Plugin Name of the plugin
-#: otp-verification-sms-for-gravity-forms.php
+#: cindova-phone-otp-sms-for-gravity-forms.php
 #: includes/admin-settings.php:38
-msgid "OTP Verification & SMS Notifications for Gravity Forms"
+msgid "Cindova Phone OTP & SMS for Gravity Forms"
 msgstr ""
 
 #. Plugin URI of the plugin
-#. Author URI of the plugin
-#: otp-verification-sms-for-gravity-forms.php
-msgid "https://www.cindova.com"
+#: cindova-phone-otp-sms-for-gravity-forms.php
+msgid "https://github.com/cindovahq/OTP-Verification-SMS-Notifications-for-Gravity-Forms"
 msgstr ""
 
 #. Description of the plugin
-#: otp-verification-sms-for-gravity-forms.php
+#: cindova-phone-otp-sms-for-gravity-forms.php
 msgid "Adds Firebase phone OTP verification to Gravity Forms, plus SMS notifications via MSG91 or Twilio and Slack notifications."
 msgstr ""
 
 #. Author of the plugin
-#: otp-verification-sms-for-gravity-forms.php
+#: cindova-phone-otp-sms-for-gravity-forms.php
 msgid "Cindova Technologies"
+msgstr ""
+
+#. Author URI of the plugin
+#: cindova-phone-otp-sms-for-gravity-forms.php
+msgid "https://www.cindova.com"
+msgstr ""
+
+#: cindova-phone-otp-sms-for-gravity-forms.php:94
+msgid "Cindova Phone OTP & SMS for Gravity Forms requires Gravity Forms 2.5 or later. Install and activate Gravity Forms (or update it to 2.5+), or deactivate this plugin. This notice disappears once Gravity Forms is active."
+msgstr ""
+
+#: cindova-phone-otp-sms-for-gravity-forms.php:111
+msgid "An older version of \"Gravity Forms OTP and SMS Notifications\" (2.x) is still active. Its settings have been copied to Cindova Phone OTP & SMS for Gravity Forms; please deactivate and delete the old plugin to avoid duplicate SMS and Slack messages."
 msgstr ""
 
 #: includes/admin-settings.php:20
@@ -50,7 +62,7 @@ msgstr ""
 
 #: includes/class-cindova-gfotp-addon.php:125
 #: includes/class-cindova-gfotp-addon.php:163
-#: includes/class-cindova-gfotp-addon.php:327
+#: includes/class-cindova-gfotp-addon.php:326
 msgid "Phone OTP Verification"
 msgstr ""
 
@@ -130,41 +142,41 @@ msgstr ""
 msgid "Invalid Firebase config. Paste a JSON object with double-quoted keys and string values that includes apiKey, authDomain and projectId."
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:328
+#: includes/class-cindova-gfotp-addon.php:327
 msgid "Visitors must verify their phone number with a one-time code sent by SMS (through Firebase) before the form can be submitted. Use a Phone field with the International format, and add a Single Line Text field for the code. SMS notifications are configured under \"SMS & Slack Notifications\" in the form settings."
 msgstr ""
 
+#: includes/class-cindova-gfotp-addon.php:332
 #: includes/class-cindova-gfotp-addon.php:333
-#: includes/class-cindova-gfotp-addon.php:334
 msgid "Enable phone verification"
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:339
+#: includes/class-cindova-gfotp-addon.php:338
 #: includes/class-cindova-gfotp-notifications-addon.php:510
 msgid "Phone field"
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:340
+#: includes/class-cindova-gfotp-addon.php:339
 msgid "The phone field should use the International format so that the number includes the country code."
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:349
+#: includes/class-cindova-gfotp-addon.php:348
 msgid "OTP code field"
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:350
+#: includes/class-cindova-gfotp-addon.php:349
 msgid "A Single Line Text field that holds the verification code entered by the visitor."
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:370
+#: includes/class-cindova-gfotp-addon.php:369
 msgid "Select the phone field."
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:385
+#: includes/class-cindova-gfotp-addon.php:384
 msgid "Select the OTP code field."
 msgstr ""
 
-#: includes/class-cindova-gfotp-addon.php:390
+#: includes/class-cindova-gfotp-addon.php:389
 msgid "The OTP code field must be different from the phone field."
 msgstr ""
 
@@ -602,12 +614,4 @@ msgstr ""
 
 #: includes/trait-cindova-gfotp-addon-common.php:141
 msgid "Remove the saved value"
-msgstr ""
-
-#: otp-verification-sms-for-gravity-forms.php:94
-msgid "OTP Verification & SMS Notifications for Gravity Forms requires Gravity Forms 2.5 or later. Install and activate Gravity Forms (or update it to 2.5+), or deactivate this plugin. This notice disappears once Gravity Forms is active."
-msgstr ""
-
-#: otp-verification-sms-for-gravity-forms.php:111
-msgid "An older version of \"Gravity Forms OTP and SMS Notifications\" (2.x) is still active. Its settings have been copied to OTP Verification & SMS Notifications for Gravity Forms; please deactivate and delete the old plugin to avoid duplicate SMS and Slack messages."
 msgstr ""

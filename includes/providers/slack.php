@@ -85,11 +85,11 @@ function cindova_gfotp_send_slack_notification( $message, $entry, $form = array(
 	}
 	if ( '' === $bot_token ) {
 		cindova_gfotp_log( 'Slack: bot token missing.' );
-		return $test_call ? __( 'Slack bot token missing.', 'otp-verification-sms-for-gravity-forms' ) : false;
+		return $test_call ? __( 'Slack bot token missing.', 'cindova-phone-otp-sms-for-gravity-forms' ) : false;
 	}
 	if ( '' === $channel_id ) {
 		cindova_gfotp_log( 'Slack: no channel selected.' );
-		return $test_call ? __( 'No Slack channel selected.', 'otp-verification-sms-for-gravity-forms' ) : false;
+		return $test_call ? __( 'No Slack channel selected.', 'cindova-phone-otp-sms-for-gravity-forms' ) : false;
 	}
 
 	$response = wp_remote_post(

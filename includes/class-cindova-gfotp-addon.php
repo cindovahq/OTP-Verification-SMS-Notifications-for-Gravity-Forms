@@ -122,8 +122,8 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 	 */
 	public function init() {
 		// Translate the titles here: property defaults cannot call __() and the constructor runs before init.
-		$this->_title       = __( 'Phone OTP Verification', 'otp-verification-sms-for-gravity-forms' );
-		$this->_short_title = __( 'Phone OTP', 'otp-verification-sms-for-gravity-forms' );
+		$this->_title       = __( 'Phone OTP Verification', 'cindova-phone-otp-sms-for-gravity-forms' );
+		$this->_short_title = __( 'Phone OTP', 'cindova-phone-otp-sms-for-gravity-forms' );
 
 		parent::init();
 
@@ -160,7 +160,7 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 	 * @return string
 	 */
 	public function plugin_settings_title() {
-		return esc_html__( 'Phone OTP Verification', 'otp-verification-sms-for-gravity-forms' );
+		return esc_html__( 'Phone OTP Verification', 'cindova-phone-otp-sms-for-gravity-forms' );
 	}
 
 	/**
@@ -172,13 +172,13 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 		return array(
 			array(
 				'id'     => 'firebase',
-				'title'  => esc_html__( 'Firebase', 'otp-verification-sms-for-gravity-forms' ),
+				'title'  => esc_html__( 'Firebase', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields' => array(
 					array(
 						'name'                => 'firebase_config',
 						'type'                => 'cindova_json',
-						'label'               => esc_html__( 'Firebase web config (JSON)', 'otp-verification-sms-for-gravity-forms' ),
-						'description'         => esc_html__( 'Copy the config object from Firebase console, Project settings, Your apps. Keys must be double-quoted JSON strings; apiKey, authDomain and projectId are required. If empty, OTP verification stays disabled.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'               => esc_html__( 'Firebase web config (JSON)', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description'         => esc_html__( 'Copy the config object from Firebase console, Project settings, Your apps. Keys must be double-quoted JSON strings; apiKey, authDomain and projectId are required. If empty, OTP verification stays disabled.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'validation_callback' => array( $this, 'validate_firebase_config' ),
 						'save_callback'       => array( $this, 'save_firebase_config' ),
 					),
@@ -191,28 +191,28 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 			),
 			array(
 				'id'     => 'app-check',
-				'title'  => esc_html__( 'App Check (optional)', 'otp-verification-sms-for-gravity-forms' ),
+				'title'  => esc_html__( 'App Check (optional)', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields' => array(
 					array(
 						'name'         => 'app_check_site_key',
 						'type'         => 'text',
-						'label'        => esc_html__( 'reCAPTCHA site key', 'otp-verification-sms-for-gravity-forms' ),
+						'label'        => esc_html__( 'reCAPTCHA site key', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'autocomplete' => 'off',
-						'description'  => '<strong>' . esc_html__( 'WARNING:', 'otp-verification-sms-for-gravity-forms' ) . '</strong> ' . esc_html__( "Leave blank to disable. App Check enforcement for Firebase Authentication is a Preview feature. If you enable enforcement in the Firebase console and this key is wrong or missing, every OTP request will be rejected. Register the key under Firebase console, App Check first, and test with enforcement in 'monitor' mode.", 'otp-verification-sms-for-gravity-forms' ),
+						'description'  => '<strong>' . esc_html__( 'WARNING:', 'cindova-phone-otp-sms-for-gravity-forms' ) . '</strong> ' . esc_html__( "Leave blank to disable. App Check enforcement for Firebase Authentication is a Preview feature. If you enable enforcement in the Firebase console and this key is wrong or missing, every OTP request will be rejected. Register the key under Firebase console, App Check first, and test with enforcement in 'monitor' mode.", 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 					array(
 						'name'          => 'app_check_provider',
 						'type'          => 'radio',
-						'label'         => esc_html__( 'Provider', 'otp-verification-sms-for-gravity-forms' ),
+						'label'         => esc_html__( 'Provider', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'default_value' => 'v3',
 						'horizontal'    => true,
 						'choices'       => array(
 							array(
-								'label' => esc_html__( 'reCAPTCHA v3', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'reCAPTCHA v3', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'v3',
 							),
 							array(
-								'label' => esc_html__( 'reCAPTCHA Enterprise', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'reCAPTCHA Enterprise', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'enterprise',
 							),
 						),
@@ -229,14 +229,14 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 	 */
 	private function get_firebase_help_html() {
 		$items = array(
-			esc_html__( 'Firebase phone authentication requires the Blaze (pay-as-you-go) plan.', 'otp-verification-sms-for-gravity-forms' ),
-			esc_html__( 'Enable the Phone provider under Authentication, Sign-in method.', 'otp-verification-sms-for-gravity-forms' ),
-			esc_html__( 'Add your site domain under Authentication, Settings, Authorized domains.', 'otp-verification-sms-for-gravity-forms' ),
-			esc_html__( 'Configure the SMS region policy under Authentication, Settings, SMS region policy.', 'otp-verification-sms-for-gravity-forms' ),
-			esc_html__( 'Copy the web app config object from Project settings, Your apps, and paste it above.', 'otp-verification-sms-for-gravity-forms' ),
-			esc_html__( 'Gravity Forms stores plugin settings as plain text in the database. To encrypt them at rest, define the GF_ENCRYPTION_KEY constant in wp-config.php (see the Gravity Forms documentation).', 'otp-verification-sms-for-gravity-forms' ),
+			esc_html__( 'Firebase phone authentication requires the Blaze (pay-as-you-go) plan.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+			esc_html__( 'Enable the Phone provider under Authentication, Sign-in method.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+			esc_html__( 'Add your site domain under Authentication, Settings, Authorized domains.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+			esc_html__( 'Configure the SMS region policy under Authentication, Settings, SMS region policy.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+			esc_html__( 'Copy the web app config object from Project settings, Your apps, and paste it above.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+			esc_html__( 'Gravity Forms stores plugin settings as plain text in the database. To encrypt them at rest, define the GF_ENCRYPTION_KEY constant in wp-config.php (see the Gravity Forms documentation).', 'cindova-phone-otp-sms-for-gravity-forms' ),
 		);
-		return '<div class="gform-settings-description"><strong>' . esc_html__( 'Firebase setup checklist', 'otp-verification-sms-for-gravity-forms' ) . '</strong><ul class="ul-disc"><li>' . implode( '</li><li>', $items ) . '</li></ul></div>';
+		return '<div class="gform-settings-description"><strong>' . esc_html__( 'Firebase setup checklist', 'cindova-phone-otp-sms-for-gravity-forms' ) . '</strong><ul class="ul-disc"><li>' . implode( '</li><li>', $items ) . '</li></ul></div>';
 	}
 
 	/**
@@ -287,7 +287,7 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 			return; // Empty disables OTP verification.
 		}
 		if ( false === cindova_gfotp_sanitize_firebase_config( $value ) ) {
-			$field->set_error( esc_html__( 'Invalid Firebase config. Paste a JSON object with double-quoted keys and string values that includes apiKey, authDomain and projectId.', 'otp-verification-sms-for-gravity-forms' ) );
+			$field->set_error( esc_html__( 'Invalid Firebase config. Paste a JSON object with double-quoted keys and string values that includes apiKey, authDomain and projectId.', 'cindova-phone-otp-sms-for-gravity-forms' ) );
 		}
 	}
 
@@ -323,20 +323,20 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 
 		return array(
 			array(
-				'title'       => esc_html__( 'Phone OTP Verification', 'otp-verification-sms-for-gravity-forms' ),
-				'description' => esc_html__( 'Visitors must verify their phone number with a one-time code sent by SMS (through Firebase) before the form can be submitted. Use a Phone field with the International format, and add a Single Line Text field for the code. SMS notifications are configured under "SMS & Slack Notifications" in the form settings.', 'otp-verification-sms-for-gravity-forms' ),
+				'title'       => esc_html__( 'Phone OTP Verification', 'cindova-phone-otp-sms-for-gravity-forms' ),
+				'description' => esc_html__( 'Visitors must verify their phone number with a one-time code sent by SMS (through Firebase) before the form can be submitted. Use a Phone field with the International format, and add a Single Line Text field for the code. SMS notifications are configured under "SMS & Slack Notifications" in the form settings.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields'      => array(
 					array(
 						'name'         => 'enabled',
 						'type'         => 'toggle',
-						'label'        => esc_html__( 'Enable phone verification', 'otp-verification-sms-for-gravity-forms' ),
-						'toggle_label' => esc_html__( 'Enable phone verification', 'otp-verification-sms-for-gravity-forms' ),
+						'label'        => esc_html__( 'Enable phone verification', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'toggle_label' => esc_html__( 'Enable phone verification', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 					array(
 						'name'                => 'phone_field_id',
 						'type'                => 'field_select',
-						'label'               => esc_html__( 'Phone field', 'otp-verification-sms-for-gravity-forms' ),
-						'description'         => esc_html__( 'The phone field should use the International format so that the number includes the country code.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'               => esc_html__( 'Phone field', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description'         => esc_html__( 'The phone field should use the International format so that the number includes the country code.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'auto_mapping'        => false,
 						'args'                => array( 'input_types' => array( 'phone', 'text' ) ),
 						'dependency'          => $live_on_enabled,
@@ -345,8 +345,8 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 					array(
 						'name'                => 'otp_field_id',
 						'type'                => 'field_select',
-						'label'               => esc_html__( 'OTP code field', 'otp-verification-sms-for-gravity-forms' ),
-						'description'         => esc_html__( 'A Single Line Text field that holds the verification code entered by the visitor.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'               => esc_html__( 'OTP code field', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description'         => esc_html__( 'A Single Line Text field that holds the verification code entered by the visitor.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'auto_mapping'        => false,
 						'args'                => array( 'input_types' => array( 'text' ) ),
 						'dependency'          => $live_on_enabled,
@@ -366,7 +366,7 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 	 */
 	public function validate_phone_field_setting( $field, $value ) {
 		if ( rgblank( $value ) ) {
-			$field->set_error( esc_html__( 'Select the phone field.', 'otp-verification-sms-for-gravity-forms' ) );
+			$field->set_error( esc_html__( 'Select the phone field.', 'cindova-phone-otp-sms-for-gravity-forms' ) );
 			return;
 		}
 		$field->do_validation( $value );
@@ -381,12 +381,12 @@ class Cindova_GFOTP_Addon extends GFAddOn {
 	 */
 	public function validate_otp_field_setting( $field, $value ) {
 		if ( rgblank( $value ) ) {
-			$field->set_error( esc_html__( 'Select the OTP code field.', 'otp-verification-sms-for-gravity-forms' ) );
+			$field->set_error( esc_html__( 'Select the OTP code field.', 'cindova-phone-otp-sms-for-gravity-forms' ) );
 			return;
 		}
 		$posted = $field->settings->get_posted_values();
 		if ( (string) rgar( $posted, 'phone_field_id' ) === (string) $value ) {
-			$field->set_error( esc_html__( 'The OTP code field must be different from the phone field.', 'otp-verification-sms-for-gravity-forms' ) );
+			$field->set_error( esc_html__( 'The OTP code field must be different from the phone field.', 'cindova-phone-otp-sms-for-gravity-forms' ) );
 			return;
 		}
 		$field->do_validation( $value );

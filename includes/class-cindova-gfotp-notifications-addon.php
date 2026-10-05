@@ -121,8 +121,8 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 	 */
 	public function init() {
 		// Translate the titles here: property defaults cannot call __() and the constructor runs before init.
-		$this->_title       = __( 'SMS & Slack Notifications', 'otp-verification-sms-for-gravity-forms' );
-		$this->_short_title = __( 'SMS & Slack', 'otp-verification-sms-for-gravity-forms' );
+		$this->_title       = __( 'SMS & Slack Notifications', 'cindova-phone-otp-sms-for-gravity-forms' );
+		$this->_short_title = __( 'SMS & Slack', 'cindova-phone-otp-sms-for-gravity-forms' );
 
 		parent::init();
 
@@ -182,10 +182,10 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 				'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
 				'nonce'         => wp_create_nonce( 'cindova_gfotp_send_test' ),
 				'formId'        => absint( rgget( 'id' ) ),
-				'sending'       => __( 'Sending…', 'otp-verification-sms-for-gravity-forms' ),
-				'noNumber'      => __( 'Enter a phone number to send the test SMS to.', 'otp-verification-sms-for-gravity-forms' ),
-				'requestFailed' => __( 'The test request failed. Reload the page and try again.', 'otp-verification-sms-for-gravity-forms' ),
-				'noResponse'    => __( 'No response text was returned.', 'otp-verification-sms-for-gravity-forms' ),
+				'sending'       => __( 'Sending…', 'cindova-phone-otp-sms-for-gravity-forms' ),
+				'noNumber'      => __( 'Enter a phone number to send the test SMS to.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+				'requestFailed' => __( 'The test request failed. Reload the page and try again.', 'cindova-phone-otp-sms-for-gravity-forms' ),
+				'noResponse'    => __( 'No response text was returned.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 			);
 		}
 
@@ -212,7 +212,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 	 * @return string
 	 */
 	public function plugin_settings_title() {
-		return esc_html__( 'SMS & Slack Notifications', 'otp-verification-sms-for-gravity-forms' );
+		return esc_html__( 'SMS & Slack Notifications', 'cindova-phone-otp-sms-for-gravity-forms' );
 	}
 
 	/**
@@ -243,22 +243,22 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 		return array(
 			array(
 				'id'          => 'provider',
-				'title'       => esc_html__( 'SMS provider', 'otp-verification-sms-for-gravity-forms' ),
-				'description' => esc_html__( 'Choose the provider used by all SMS notification feeds. Slack is configured below. Gravity Forms stores these settings as plain text in the database; define the GF_ENCRYPTION_KEY constant in wp-config.php to encrypt them at rest (see the Gravity Forms documentation).', 'otp-verification-sms-for-gravity-forms' ),
+				'title'       => esc_html__( 'SMS provider', 'cindova-phone-otp-sms-for-gravity-forms' ),
+				'description' => esc_html__( 'Choose the provider used by all SMS notification feeds. Slack is configured below. Gravity Forms stores these settings as plain text in the database; define the GF_ENCRYPTION_KEY constant in wp-config.php to encrypt them at rest (see the Gravity Forms documentation).', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields'      => array(
 					array(
 						'name'          => 'sms_provider',
 						'type'          => 'radio',
-						'label'         => esc_html__( 'SMS provider', 'otp-verification-sms-for-gravity-forms' ),
+						'label'         => esc_html__( 'SMS provider', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'default_value' => 'msg91',
 						'horizontal'    => true,
 						'choices'       => array(
 							array(
-								'label' => esc_html__( 'MSG91', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'MSG91', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'msg91',
 							),
 							array(
-								'label' => esc_html__( 'Twilio', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'Twilio', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'twilio',
 							),
 						),
@@ -267,21 +267,21 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 			),
 			array(
 				'id'         => 'msg91',
-				'title'      => esc_html__( 'MSG91', 'otp-verification-sms-for-gravity-forms' ),
+				'title'      => esc_html__( 'MSG91', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'dependency' => $this->live_dependency( 'sms_provider', 'msg91' ),
 				'fields'     => array(
 					array(
 						'name'          => 'msg91_api',
 						'type'          => 'radio',
-						'label'         => esc_html__( 'MSG91 API', 'otp-verification-sms-for-gravity-forms' ),
+						'label'         => esc_html__( 'MSG91 API', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'default_value' => cindova_gfotp_get_msg91_api_mode(),
 						'choices'       => array(
 							array(
-								'label' => esc_html__( 'Flow API v5 (recommended)', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'Flow API v5 (recommended)', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'flow',
 							),
 							array(
-								'label' => esc_html__( 'Legacy sendhttp (free-text message + DLT template ID)', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'Legacy sendhttp (free-text message + DLT template ID)', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'legacy',
 							),
 						),
@@ -289,73 +289,73 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 					array(
 						'name'  => 'msg91_authkey',
 						'type'  => 'cindova_secret',
-						'label' => esc_html__( 'MSG91 Auth Key', 'otp-verification-sms-for-gravity-forms' ),
+						'label' => esc_html__( 'MSG91 Auth Key', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 					array(
 						'name'        => 'msg91_senderid',
 						'type'        => 'text',
-						'label'       => esc_html__( 'MSG91 Sender ID', 'otp-verification-sms-for-gravity-forms' ),
-						'description' => esc_html__( 'Legacy sendhttp API only. Not used by the Flow API.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'       => esc_html__( 'MSG91 Sender ID', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description' => esc_html__( 'Legacy sendhttp API only. Not used by the Flow API.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'dependency'  => $this->live_dependency( 'msg91_api', 'legacy' ),
 					),
 					array(
 						'name'          => 'msg91_route',
 						'type'          => 'text',
-						'label'         => esc_html__( 'MSG91 Route', 'otp-verification-sms-for-gravity-forms' ),
+						'label'         => esc_html__( 'MSG91 Route', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'default_value' => '4',
-						'description'   => esc_html__( 'Legacy sendhttp API only. Default is 4.', 'otp-verification-sms-for-gravity-forms' ),
+						'description'   => esc_html__( 'Legacy sendhttp API only. Default is 4.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'dependency'    => $this->live_dependency( 'msg91_api', 'legacy' ),
 					),
 				),
 			),
 			array(
 				'id'         => 'twilio',
-				'title'      => esc_html__( 'Twilio', 'otp-verification-sms-for-gravity-forms' ),
+				'title'      => esc_html__( 'Twilio', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'dependency' => $this->live_dependency( 'sms_provider', 'twilio' ),
 				'fields'     => array(
 					array(
 						'name'        => 'twilio_phone',
 						'type'        => 'text',
-						'label'       => esc_html__( 'Twilio From Phone Number', 'otp-verification-sms-for-gravity-forms' ),
-						'description' => esc_html__( 'For example +1234567890.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'       => esc_html__( 'Twilio From Phone Number', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description' => esc_html__( 'For example +1234567890.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 					array(
 						'name'  => 'twilio_sid',
 						'type'  => 'text',
-						'label' => esc_html__( 'Twilio Account SID', 'otp-verification-sms-for-gravity-forms' ),
+						'label' => esc_html__( 'Twilio Account SID', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 					array(
 						'name'  => 'twilio_token',
 						'type'  => 'cindova_secret',
-						'label' => esc_html__( 'Twilio Auth Token', 'otp-verification-sms-for-gravity-forms' ),
+						'label' => esc_html__( 'Twilio Auth Token', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 				),
 			),
 			array(
 				'id'     => 'slack',
-				'title'  => esc_html__( 'Slack', 'otp-verification-sms-for-gravity-forms' ),
+				'title'  => esc_html__( 'Slack', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields' => array(
 					array(
 						'name'                => 'slack_bot_token',
 						'type'                => 'cindova_secret',
-						'label'               => esc_html__( 'Slack Bot User OAuth Token', 'otp-verification-sms-for-gravity-forms' ),
-						'description'         => esc_html__( 'Requires the channels:read, groups:read and chat:write scopes. Saving a new token loads the channel list.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'               => esc_html__( 'Slack Bot User OAuth Token', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description'         => esc_html__( 'Requires the channels:read, groups:read and chat:write scopes. Saving a new token loads the channel list.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'validation_callback' => array( $this, 'validate_slack_token' ),
 					),
 					array(
 						'name'        => 'slack_channel',
 						'type'        => 'select',
-						'label'       => esc_html__( 'Default channel', 'otp-verification-sms-for-gravity-forms' ),
-						'description' => esc_html__( 'Used by Slack feeds that do not choose a channel. Make sure your bot is a member of the channel.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'       => esc_html__( 'Default channel', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description' => esc_html__( 'Used by Slack feeds that do not choose a channel. Make sure your bot is a member of the channel.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'choices'     => function () {
-							return $this->get_slack_channel_choices( esc_html__( 'Select a channel', 'otp-verification-sms-for-gravity-forms' ) );
+							return $this->get_slack_channel_choices( esc_html__( 'Select a channel', 'cindova-phone-otp-sms-for-gravity-forms' ) );
 						},
 					),
 					array(
 						'name'         => 'slack_refresh_channels',
 						'type'         => 'toggle',
-						'label'        => esc_html__( 'Refresh the channel list when saving', 'otp-verification-sms-for-gravity-forms' ),
-						'toggle_label' => esc_html__( 'Refresh the channel list when saving', 'otp-verification-sms-for-gravity-forms' ),
+						'label'        => esc_html__( 'Refresh the channel list when saving', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'toggle_label' => esc_html__( 'Refresh the channel list when saving', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 				),
 			),
@@ -432,7 +432,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 			$field->set_error(
 				sprintf(
 					/* translators: %s: error returned by Slack, e.g. invalid_auth or missing_scope. */
-					esc_html__( 'Slack could not load the channel list: %s', 'otp-verification-sms-for-gravity-forms' ),
+					esc_html__( 'Slack could not load the channel list: %s', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					esc_html( $channels->get_error_message() )
 				)
 			);
@@ -461,37 +461,37 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 		$provider_label = 'twilio' === cindova_gfotp_get_sms_provider() ? 'Twilio' : 'MSG91';
 		if ( 'MSG91' === $provider_label ) {
 			$provider_hint = 'flow' === cindova_gfotp_get_msg91_api_mode()
-				? esc_html__( 'Current provider: MSG91 Flow API. The Template ID and Flow variables are used; the message is ignored.', 'otp-verification-sms-for-gravity-forms' )
-				: esc_html__( 'Current provider: MSG91 legacy API. The message is sent; the Template ID is the optional DLT template ID. Flow variables are ignored.', 'otp-verification-sms-for-gravity-forms' );
+				? esc_html__( 'Current provider: MSG91 Flow API. The Template ID and Flow variables are used; the message is ignored.', 'cindova-phone-otp-sms-for-gravity-forms' )
+				: esc_html__( 'Current provider: MSG91 legacy API. The message is sent; the Template ID is the optional DLT template ID. Flow variables are ignored.', 'cindova-phone-otp-sms-for-gravity-forms' );
 		} else {
-			$provider_hint = esc_html__( 'Current provider: Twilio. The message is sent as the SMS body. Template ID and Flow variables are ignored.', 'otp-verification-sms-for-gravity-forms' );
+			$provider_hint = esc_html__( 'Current provider: Twilio. The message is sent as the SMS body. Template ID and Flow variables are ignored.', 'cindova-phone-otp-sms-for-gravity-forms' );
 		}
-		$merge_help = esc_html__( 'Use placeholders like {{field_1}} or Gravity Forms merge tags such as {Name:1}, {entry_id} or {all_fields}.', 'otp-verification-sms-for-gravity-forms' );
+		$merge_help = esc_html__( 'Use placeholders like {{field_1}} or Gravity Forms merge tags such as {Name:1}, {entry_id} or {all_fields}.', 'cindova-phone-otp-sms-for-gravity-forms' );
 
 		return array(
 			array(
-				'title'  => esc_html__( 'Notification settings', 'otp-verification-sms-for-gravity-forms' ),
+				'title'  => esc_html__( 'Notification settings', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields' => array(
 					array(
 						'name'     => 'feedName',
 						'type'     => 'text',
-						'label'    => esc_html__( 'Name', 'otp-verification-sms-for-gravity-forms' ),
+						'label'    => esc_html__( 'Name', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'required' => true,
 						'class'    => 'medium',
 					),
 					array(
 						'name'          => 'notification_type',
 						'type'          => 'radio',
-						'label'         => esc_html__( 'Notification type', 'otp-verification-sms-for-gravity-forms' ),
+						'label'         => esc_html__( 'Notification type', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'default_value' => 'sms',
 						'horizontal'    => true,
 						'choices'       => array(
 							array(
-								'label' => esc_html__( 'SMS', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'SMS', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'sms',
 							),
 							array(
-								'label' => esc_html__( 'Slack', 'otp-verification-sms-for-gravity-forms' ),
+								'label' => esc_html__( 'Slack', 'cindova-phone-otp-sms-for-gravity-forms' ),
 								'value' => 'slack',
 							),
 						),
@@ -500,15 +500,15 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 			),
 			array(
 				'id'          => 'sms',
-				'title'       => esc_html__( 'SMS', 'otp-verification-sms-for-gravity-forms' ),
+				'title'       => esc_html__( 'SMS', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'description' => $provider_hint,
 				'dependency'  => $this->live_dependency( 'notification_type', 'sms' ),
 				'fields'      => array(
 					array(
 						'name'         => 'phone_field',
 						'type'         => 'field_select',
-						'label'        => esc_html__( 'Phone field', 'otp-verification-sms-for-gravity-forms' ),
-						'description'  => esc_html__( 'The SMS is sent to the number entered in this field.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'        => esc_html__( 'Phone field', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description'  => esc_html__( 'The SMS is sent to the number entered in this field.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'required'     => true,
 						'auto_mapping' => false,
 						'args'         => array( 'input_types' => array( 'phone', 'text' ) ),
@@ -516,23 +516,23 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 					array(
 						'name'                => 'message',
 						'type'                => 'textarea',
-						'label'               => esc_html__( 'Message', 'otp-verification-sms-for-gravity-forms' ),
-						'description'         => esc_html__( 'MSG91 legacy API and Twilio: the SMS text.', 'otp-verification-sms-for-gravity-forms' ) . ' ' . $merge_help,
+						'label'               => esc_html__( 'Message', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description'         => esc_html__( 'MSG91 legacy API and Twilio: the SMS text.', 'cindova-phone-otp-sms-for-gravity-forms' ) . ' ' . $merge_help,
 						'class'               => 'merge-tag-support mt-position-right',
 						'validation_callback' => array( $this, 'validate_message_setting' ),
 					),
 					array(
 						'name'        => 'msg91_template_id',
 						'type'        => 'text',
-						'label'       => esc_html__( 'Template ID (MSG91)', 'otp-verification-sms-for-gravity-forms' ),
-						'description' => esc_html__( 'Flow API v5: the Flow template ID from your MSG91 account (required to send). Legacy API: the optional DLT template ID.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'       => esc_html__( 'Template ID (MSG91)', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description' => esc_html__( 'Flow API v5: the Flow template ID from your MSG91 account (required to send). Legacy API: the optional DLT template ID.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'class'       => 'medium',
 					),
 					array(
 						'name'                => 'msg91_variables',
 						'type'                => 'textarea',
-						'label'               => esc_html__( 'Flow variables (MSG91)', 'otp-verification-sms-for-gravity-forms' ),
-						'description'         => esc_html__( 'Flow API v5 only (ignored by the legacy API). One name=value per line. A template variable ##var1## is sent as var1, for example: var1={{field_1}}. Names are case-sensitive.', 'otp-verification-sms-for-gravity-forms' ) . ' ' . $merge_help,
+						'label'               => esc_html__( 'Flow variables (MSG91)', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description'         => esc_html__( 'Flow API v5 only (ignored by the legacy API). One name=value per line. A template variable ##var1## is sent as var1, for example: var1={{field_1}}. Names are case-sensitive.', 'cindova-phone-otp-sms-for-gravity-forms' ) . ' ' . $merge_help,
 						'class'               => 'merge-tag-support mt-position-right code',
 						'validation_callback' => array( $this, 'validate_message_setting' ),
 					),
@@ -540,13 +540,13 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 			),
 			array(
 				'id'         => 'slack-message',
-				'title'      => esc_html__( 'Slack', 'otp-verification-sms-for-gravity-forms' ),
+				'title'      => esc_html__( 'Slack', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'dependency' => $this->live_dependency( 'notification_type', 'slack' ),
 				'fields'     => array(
 					array(
 						'name'                => 'slack_message',
 						'type'                => 'textarea',
-						'label'               => esc_html__( 'Slack message', 'otp-verification-sms-for-gravity-forms' ),
+						'label'               => esc_html__( 'Slack message', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'description'         => $merge_help,
 						'required'            => true,
 						'class'               => 'merge-tag-support mt-position-right',
@@ -555,28 +555,28 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 					array(
 						'name'        => 'slack_channel',
 						'type'        => 'select',
-						'label'       => esc_html__( 'Channel', 'otp-verification-sms-for-gravity-forms' ),
-						'description' => esc_html__( 'Leave on the default to use the channel chosen under Forms, Settings, SMS & Slack.', 'otp-verification-sms-for-gravity-forms' ),
+						'label'       => esc_html__( 'Channel', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'description' => esc_html__( 'Leave on the default to use the channel chosen under Forms, Settings, SMS & Slack.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 						'choices'     => function () {
-							return $this->get_slack_channel_choices( esc_html__( 'Default channel', 'otp-verification-sms-for-gravity-forms' ) );
+							return $this->get_slack_channel_choices( esc_html__( 'Default channel', 'cindova-phone-otp-sms-for-gravity-forms' ) );
 						},
 					),
 				),
 			),
 			array(
-				'title'  => esc_html__( 'Conditional logic', 'otp-verification-sms-for-gravity-forms' ),
+				'title'  => esc_html__( 'Conditional logic', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields' => array(
 					array(
 						'name'           => 'feedCondition',
 						'type'           => 'feed_condition',
-						'label'          => esc_html__( 'Condition', 'otp-verification-sms-for-gravity-forms' ),
-						'checkbox_label' => esc_html__( 'Enable condition', 'otp-verification-sms-for-gravity-forms' ),
-						'instructions'   => esc_html__( 'Send this notification if', 'otp-verification-sms-for-gravity-forms' ),
+						'label'          => esc_html__( 'Condition', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'checkbox_label' => esc_html__( 'Enable condition', 'cindova-phone-otp-sms-for-gravity-forms' ),
+						'instructions'   => esc_html__( 'Send this notification if', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					),
 				),
 			),
 			array(
-				'title'  => esc_html__( 'Send a test', 'otp-verification-sms-for-gravity-forms' ),
+				'title'  => esc_html__( 'Send a test', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				'fields' => array(
 					array(
 						'name' => 'test_controls',
@@ -596,10 +596,10 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 	 */
 	private function get_test_controls_html() {
 		return '<div class="cindova-gfotp-test">'
-			. '<p class="gform-settings-description">' . esc_html__( 'Sends a test using the values currently entered above; you do not need to save first. The test has no entry, so merge tags such as {Name:1} are not replaced and are sent as written. Slack tests post to the chosen channel (or the default channel).', 'otp-verification-sms-for-gravity-forms' ) . '</p>'
-			. '<p class="cindova-gfotp-test-number"><label for="cindova_gfotp_test_number">' . esc_html__( 'Test phone number (SMS)', 'otp-verification-sms-for-gravity-forms' ) . '</label><br />'
+			. '<p class="gform-settings-description">' . esc_html__( 'Sends a test using the values currently entered above; you do not need to save first. The test has no entry, so merge tags such as {Name:1} are not replaced and are sent as written. Slack tests post to the chosen channel (or the default channel).', 'cindova-phone-otp-sms-for-gravity-forms' ) . '</p>'
+			. '<p class="cindova-gfotp-test-number"><label for="cindova_gfotp_test_number">' . esc_html__( 'Test phone number (SMS)', 'cindova-phone-otp-sms-for-gravity-forms' ) . '</label><br />'
 			. '<input type="text" id="cindova_gfotp_test_number" class="medium" placeholder="+14155552671" autocomplete="off" /></p>'
-			. '<p><button type="button" class="button" id="cindova_gfotp_send_test">' . esc_html__( 'Send test', 'otp-verification-sms-for-gravity-forms' ) . '</button></p>'
+			. '<p><button type="button" class="button" id="cindova_gfotp_send_test">' . esc_html__( 'Send test', 'cindova-phone-otp-sms-for-gravity-forms' ) . '</button></p>'
 			. '<p id="cindova_gfotp_test_result" role="status" aria-live="polite"></p>'
 			. '</div>';
 	}
@@ -614,7 +614,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 	 */
 	public function validate_message_setting( $field, $value ) {
 		if ( $field->required && rgblank( $value ) ) {
-			$field->set_error( esc_html__( 'This field is required.', 'otp-verification-sms-for-gravity-forms' ) );
+			$field->set_error( esc_html__( 'This field is required.', 'cindova-phone-otp-sms-for-gravity-forms' ) );
 		}
 	}
 
@@ -648,9 +648,9 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 	 */
 	public function feed_list_columns() {
 		return array(
-			'feedName'          => esc_html__( 'Name', 'otp-verification-sms-for-gravity-forms' ),
-			'notification_type' => esc_html__( 'Type', 'otp-verification-sms-for-gravity-forms' ),
-			'details'           => esc_html__( 'Details', 'otp-verification-sms-for-gravity-forms' ),
+			'feedName'          => esc_html__( 'Name', 'cindova-phone-otp-sms-for-gravity-forms' ),
+			'notification_type' => esc_html__( 'Type', 'cindova-phone-otp-sms-for-gravity-forms' ),
+			'details'           => esc_html__( 'Details', 'cindova-phone-otp-sms-for-gravity-forms' ),
 		);
 	}
 
@@ -661,7 +661,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 	 * @return string
 	 */
 	public function get_column_value_notification_type( $feed ) {
-		return 'slack' === rgars( $feed, 'meta/notification_type' ) ? esc_html__( 'Slack', 'otp-verification-sms-for-gravity-forms' ) : esc_html__( 'SMS', 'otp-verification-sms-for-gravity-forms' );
+		return 'slack' === rgars( $feed, 'meta/notification_type' ) ? esc_html__( 'Slack', 'cindova-phone-otp-sms-for-gravity-forms' ) : esc_html__( 'SMS', 'cindova-phone-otp-sms-for-gravity-forms' );
 	}
 
 	/**
@@ -674,7 +674,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 		$meta = rgar( $feed, 'meta' );
 		if ( 'slack' === rgar( $meta, 'notification_type' ) ) {
 			$channel = (string) rgar( $meta, 'slack_channel' );
-			return '' === $channel ? esc_html__( 'Default channel', 'otp-verification-sms-for-gravity-forms' ) : esc_html( $this->get_slack_channel_name( $channel ) );
+			return '' === $channel ? esc_html__( 'Default channel', 'cindova-phone-otp-sms-for-gravity-forms' ) : esc_html( $this->get_slack_channel_name( $channel ) );
 		}
 
 		$phone_field_id = (string) rgar( $meta, 'phone_field' );
@@ -717,7 +717,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 		$phone_field_id = (string) rgar( $meta, 'phone_field' );
 		$phone          = '' !== $phone_field_id ? trim( (string) $this->get_field_value( $form, $entry, $phone_field_id ) ) : '';
 		if ( '' === $phone ) {
-			$this->add_feed_error( esc_html__( 'No SMS was sent because the phone field is empty.', 'otp-verification-sms-for-gravity-forms' ), $feed, $entry, $form );
+			$this->add_feed_error( esc_html__( 'No SMS was sent because the phone field is empty.', 'cindova-phone-otp-sms-for-gravity-forms' ), $feed, $entry, $form );
 			return false;
 		}
 
@@ -728,21 +728,21 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 		if ( 'twilio' === cindova_gfotp_get_sms_provider() ) {
 			$provider = 'Twilio';
 			if ( '' === $message ) {
-				$this->add_feed_error( esc_html__( 'No SMS was sent because the message is empty.', 'otp-verification-sms-for-gravity-forms' ), $feed, $entry, $form );
+				$this->add_feed_error( esc_html__( 'No SMS was sent because the message is empty.', 'cindova-phone-otp-sms-for-gravity-forms' ), $feed, $entry, $form );
 				return false;
 			}
 			$sent = cindova_gfotp_send_twilio_sms( $phone, $message, false, $entry, $form );
 		} elseif ( 'flow' === cindova_gfotp_get_msg91_api_mode() ) {
 			$provider = 'MSG91';
 			if ( '' === $template_id ) {
-				$this->add_feed_error( esc_html__( 'No SMS was sent because the MSG91 Flow template ID is empty.', 'otp-verification-sms-for-gravity-forms' ), $feed, $entry, $form );
+				$this->add_feed_error( esc_html__( 'No SMS was sent because the MSG91 Flow template ID is empty.', 'cindova-phone-otp-sms-for-gravity-forms' ), $feed, $entry, $form );
 				return false;
 			}
 			$sent = cindova_gfotp_send_msg91_flow_sms( $phone, $template_id, (string) rgar( $meta, 'msg91_variables' ), false, $entry, $form );
 		} else {
 			$provider = 'MSG91';
 			if ( '' === $message ) {
-				$this->add_feed_error( esc_html__( 'No SMS was sent because the message is empty.', 'otp-verification-sms-for-gravity-forms' ), $feed, $entry, $form );
+				$this->add_feed_error( esc_html__( 'No SMS was sent because the message is empty.', 'cindova-phone-otp-sms-for-gravity-forms' ), $feed, $entry, $form );
 				return false;
 			}
 			$sent = cindova_gfotp_send_msg91_sms( $phone, $message, $template_id, false, $entry, $form );
@@ -752,7 +752,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 			$this->add_feed_error(
 				sprintf(
 					/* translators: %s: SMS provider name. */
-					esc_html__( 'The SMS could not be sent through %s. Check the provider credentials and the Gravity Forms logs.', 'otp-verification-sms-for-gravity-forms' ),
+					esc_html__( 'The SMS could not be sent through %s. Check the provider credentials and the Gravity Forms logs.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 					$provider
 				),
 				$feed,
@@ -767,7 +767,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 			$entry['id'],
 			sprintf(
 				/* translators: 1: phone number, 2: SMS provider name. */
-				esc_html__( 'SMS sent to %1$s via %2$s.', 'otp-verification-sms-for-gravity-forms' ),
+				esc_html__( 'SMS sent to %1$s via %2$s.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				$phone,
 				$provider
 			),
@@ -793,16 +793,16 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 		}
 
 		if ( '' === $message ) {
-			$this->add_feed_error( esc_html__( 'No Slack message was sent because the message is empty.', 'otp-verification-sms-for-gravity-forms' ), $feed, $entry, $form );
+			$this->add_feed_error( esc_html__( 'No Slack message was sent because the message is empty.', 'cindova-phone-otp-sms-for-gravity-forms' ), $feed, $entry, $form );
 			return false;
 		}
 		if ( '' === $channel ) {
-			$this->add_feed_error( esc_html__( 'No Slack message was sent because no channel is selected.', 'otp-verification-sms-for-gravity-forms' ), $feed, $entry, $form );
+			$this->add_feed_error( esc_html__( 'No Slack message was sent because no channel is selected.', 'cindova-phone-otp-sms-for-gravity-forms' ), $feed, $entry, $form );
 			return false;
 		}
 
 		if ( ! cindova_gfotp_send_slack_notification( $message, $entry, $form, $channel ) ) {
-			$this->add_feed_error( esc_html__( 'The Slack message could not be sent. Check the bot token, the channel and the Gravity Forms logs.', 'otp-verification-sms-for-gravity-forms' ), $feed, $entry, $form );
+			$this->add_feed_error( esc_html__( 'The Slack message could not be sent. Check the bot token, the channel and the Gravity Forms logs.', 'cindova-phone-otp-sms-for-gravity-forms' ), $feed, $entry, $form );
 			return false;
 		}
 
@@ -811,7 +811,7 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 			$entry['id'],
 			sprintf(
 				/* translators: %s: Slack channel. */
-				esc_html__( 'Slack notification sent to %s.', 'otp-verification-sms-for-gravity-forms' ),
+				esc_html__( 'Slack notification sent to %s.', 'cindova-phone-otp-sms-for-gravity-forms' ),
 				$this->get_slack_channel_name( $channel )
 			),
 			'success'
@@ -829,10 +829,10 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 	public function ajax_send_test() {
 		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'cindova_gfotp_send_test' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Your session expired. Reload the page and try again.', 'otp-verification-sms-for-gravity-forms' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Your session expired. Reload the page and try again.', 'cindova-phone-otp-sms-for-gravity-forms' ) ), 403 );
 		}
 		if ( ! GFCommon::current_user_can_any( 'gravityforms_edit_forms' ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'otp-verification-sms-for-gravity-forms' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this.', 'cindova-phone-otp-sms-for-gravity-forms' ) ), 403 );
 		}
 
 		$text = static function ( $key, $multiline = false ) {
@@ -875,31 +875,31 @@ class Cindova_GFOTP_Notifications_Addon extends GFFeedAddOn {
 
 		if ( 'slack' === $type ) {
 			if ( '' === $message ) {
-				return __( 'No Slack message entered.', 'otp-verification-sms-for-gravity-forms' );
+				return __( 'No Slack message entered.', 'cindova-phone-otp-sms-for-gravity-forms' );
 			}
 			return (string) cindova_gfotp_send_slack_notification( $message, array(), $form, (string) rgar( $args, 'channel' ), true );
 		}
 
 		$phone = (string) rgar( $args, 'phone' );
 		if ( '' === $phone ) {
-			return __( 'No test number provided.', 'otp-verification-sms-for-gravity-forms' );
+			return __( 'No test number provided.', 'cindova-phone-otp-sms-for-gravity-forms' );
 		}
 		$template_id = (string) rgar( $args, 'template_id' );
 
 		if ( 'twilio' === cindova_gfotp_get_sms_provider() ) {
 			if ( '' === $message ) {
-				return __( 'No Twilio message configured.', 'otp-verification-sms-for-gravity-forms' );
+				return __( 'No Twilio message configured.', 'cindova-phone-otp-sms-for-gravity-forms' );
 			}
 			return (string) cindova_gfotp_send_twilio_sms( $phone, $message, true, array(), $form );
 		}
 		if ( 'flow' === cindova_gfotp_get_msg91_api_mode() ) {
 			if ( '' === $template_id ) {
-				return __( 'No MSG91 Flow template ID configured.', 'otp-verification-sms-for-gravity-forms' );
+				return __( 'No MSG91 Flow template ID configured.', 'cindova-phone-otp-sms-for-gravity-forms' );
 			}
 			return (string) cindova_gfotp_send_msg91_flow_sms( $phone, $template_id, (string) rgar( $args, 'variables' ), true, array(), $form );
 		}
 		if ( '' === $message ) {
-			return __( 'No MSG91 message configured.', 'otp-verification-sms-for-gravity-forms' );
+			return __( 'No MSG91 message configured.', 'cindova-phone-otp-sms-for-gravity-forms' );
 		}
 		return (string) cindova_gfotp_send_msg91_sms( $phone, $message, $template_id, true, array(), $form );
 	}
